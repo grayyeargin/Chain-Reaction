@@ -1,3 +1,8 @@
 #game {
 	background-color: #46EBBF;
 }
+
+h3 {
+	position: absolute;
+	left: 20;
+}
