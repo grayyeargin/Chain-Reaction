@@ -1,13 +1,13 @@
 body {
 	color: white;
-	background-color: #000;
+	background-color: #3A539B;
 	font-family: 'VT323', monospace;
 	text-align: center;
+	padding-top: 20px;
 }
 
-h1 {
-	font-size: 3em;
-	margin-bottom: 10px;
+h2 {
+	margin: 5px 0;
 }
 
 .border-wrapper {
@@ -19,7 +19,7 @@ h1 {
 }
 
 #game {
-	background-color: #fff;
+	background-color: #000;
 }
 
 .wrapper {

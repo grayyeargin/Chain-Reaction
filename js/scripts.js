@@ -1,6 +1,6 @@
 window.onload = function() {
 
-
+// create global variables for DOM elements
 var board = document.getElementById("game");
 var context = board.getContext("2d");
 var gameOptions = document.getElementById("game-options");
@@ -10,11 +10,15 @@ var levelEl = document.getElementById("level");
 var hitsLeftEl = document.getElementById('hits-left');
 var scoreEl = document.getElementById('score');
 var gameOptionButton = document.getElementById('finished-remark');
+
+// global variables for game play
 var colors = ['#bc13fe', '#FF9933', '#7FFF00', '#00BFFF', '#FF0000'];
 var explosionColors = ['rgba(127, 255, 0, 0.6)', 'rgba(25, 181, 254, 0.6)', 'rgba(249, 191, 59, 0.6)', 'rgba(188, 19, 254, 0.6)'];
+var sassyLossComments = ["Bummer dude... You lost", "Try getting more 'splosions next time", "'A' for effort. 'F+' for actual success", "You didn't win, BUT you are excellent at losing", "Don't sweat the loss, I am sure you are good at something"];
+var comment = sassyLossComments[Math.floor(Math.random() * sassyLossComments.length)];
 var scoreCount = 0;
 var balls = [];
-var level = 1;var o;
+var level = 1;
 var percentHit = 0.1;
 var ballCount = 20;
 var minimumScore = 2;
@@ -95,13 +99,13 @@ var clickExplosion = function(e) {
 	explosions = [];
 	context.beginPath();
 	context.arc(x,y,1,0,Math.PI*2);
-	context.fillStyle = '#000000';
+	context.fillStyle = '#F5AB35';
 	context.fill();
 	explosions.push({
 		cx: x,
 		cy: y,
 		radius: 1,
-		color: '#000000',
+		color: '#F5AB35',
 		sizeInt: .5,
 		start: 0,
 		end: Math.PI*2
@@ -115,7 +119,7 @@ function endGame(){
 		explosions = null;
 		gameOptions.style.display = "block";
 	} else {
-		gameOptionButton.innerHTML = "Bummer dude... you lost";
+		gameOptionButton.innerHTML = comment;
 		nextLevelButton.style.display = "none";
 		playAgainButton.style.display = "block";
 		gameOptions.style.display = "block";
@@ -127,11 +131,11 @@ board.addEventListener("click", clickExplosion);
 // goes through every explosion and calls function sizer to resize each explosion
 function explosionSize() {
 	if (explosions.length === 0){
+
 			endGame();
 	}
 	for (k = 0; k < explosions.length; k++) {
-		var exp = explosions[k];
-		sizer(exp);
+		sizer(explosions[k]);
 	}
 }
 
@@ -177,7 +181,7 @@ function checkHit(exp){
 			explosions.push({
 				cx: ball.cx,
 				cy: ball.cy,
-				color: explosionColors[Math.floor(Math.random() * colors.length)],
+				color: explosionColors[Math.floor(Math.random() * explosionColors.length)],
 				radius: 1,
 				sizeInt: .5,
 				start: 0,
@@ -195,6 +199,7 @@ function checkHit(exp){
 // action for when you click next level button
 function nextLevel() {
 	balls = [];
+	comment = sassyLossComments[Math.floor(Math.random() * sassyLossComments.length)];
 	gameOptions.style.display = "none";
 	context.clearRect(0,0,width,height);
 	scoreCount = 0;
