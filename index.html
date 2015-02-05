@@ -3,13 +3,28 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Chain Reaction</title>
+	<link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="styles.css">
 	<script src="js/scripts.js"></script>
 </head>
 <body>
-	
-		<h3>Score: <span id="score">0</span></h3>
-		<canvas id="game"></canvas>
+		
+		<h1>CHAIN REACTION</h1>
+		<h2>LEVEL: <span id="level">1</span></h2>
+		<div class="wrapper score-contents">
+			<h3>Score: <span id="score">0</span></h3>
+			<h3>To Win: <span id="hits-left">2</span></h3>
+		</div>
+
+		<div class="border-wrapper">
+			<canvas id="game"></canvas>
+		</div>
+
+		<div id="game-options">
+			<h2 id="finished-remark"></h2>
+			<button class="option-buttons" id="next-level">NEXT LEVEL</button>
+			<button class="option-buttons" id="play-again">PLAY AGAIN!</button>
+		</div>
 
 </body>
 </html>

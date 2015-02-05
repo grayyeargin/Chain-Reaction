@@ -1,8 +1,67 @@
-#game {
-	background-color: #46EBBF;
+body {
+	color: white;
+	background-color: #000;
+	font-family: 'VT323', monospace;
+	text-align: center;
 }
 
-h3 {
+h1 {
+	font-size: 3em;
+	margin-bottom: 10px;
+}
+
+.border-wrapper {
+	overflow: hidden;
+	display: inline-block;
+	margin: 0 auto;
+	border: 15px solid white;
+	border-image: url(http://m.rgbimg.com/cache1sbAIW/users/x/xy/xymonau/600/nsCYj08.jpg) 30 30 round;
+}
+
+#game {
+	background-color: #fff;
+}
+
+.wrapper {
+	width: 100%;
+}
+
+.score-contents h3 {
+	display: inline-block;
+	margin: 10px  30px;
+}
+
+#finished-remark {
+	padding-top: 20%;
+	font-size: 3em;
+}
+
+#game-options {
+	top: 0;
+	left: 0;
+	display: none;
+	height: 100%;
+	width: 100%;
 	position: absolute;
-	left: 20;
+	background-color: rgba(0, 0, 0, .7);
+}
+
+.option-buttons {
+	border: none;
+  outline: none;
+  margin: 0 auto;
+  background-color: #e67e22;
+  padding: 10px 20px;
+  font: inherit;
+  font-size: 1.5em;
+  color: #fff;
+	cursor: pointer;
+}
+
+.option-buttons:hover {
+	background-color: #d35400;
+}
+
+#game-options #play-again {
+	display: none;
 }
