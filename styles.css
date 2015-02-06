@@ -63,5 +63,6 @@ h2 {
 }
 
 #game-options #play-again {
+	margin-top: 30px;
 	display: none;
 }
