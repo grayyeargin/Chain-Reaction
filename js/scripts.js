@@ -20,7 +20,7 @@ var scoreCount = 0;
 var balls = [];
 var level = 1;
 var percentHit = 0.1;
-var ballCount = 20;
+var ballCount = 30;
 var minimumScore = 2;
 var hitsLeft = minimumScore;
 width = board.width = 800;
@@ -92,10 +92,8 @@ var explosions;
 
 // function that will create first explosion, and pass data into explosion array
 var clickExplosion = function(e) {
-	var x = e.x;
-	var y = e.y;
-	x -= board.offsetLeft;
-  y -= board.offsetTop;
+	var x = e.clientX - board.offsetLeft;
+	var y = e.clientY - board.offsetTop;
 	explosions = [];
 	context.beginPath();
 	context.arc(x,y,1,0,Math.PI*2);
@@ -114,6 +112,9 @@ var clickExplosion = function(e) {
 	board.removeEventListener("click", clickExplosion);
 }
 
+// create event listener to create first explosion
+board.addEventListener("click", clickExplosion);
+
 function endGame(){
 	if (scoreCount >= minimumScore){
 		explosions = null;
@@ -125,8 +126,6 @@ function endGame(){
 		gameOptions.style.display = "block";
 	}
 }
-// create event listener to create first explosion
-board.addEventListener("click", clickExplosion);
 
 // goes through every explosion and calls function sizer to resize each explosion
 function explosionSize() {
@@ -210,9 +209,9 @@ function nextLevel() {
 		percentHit += 0.1;
 	} 
 	if (level <= 6) {
-		ballCount += 15;
+		ballCount += 10;
 	} else {
-		ballCount -= 10;
+		ballCount -= 5;
 	}
 	minimumScore = Math.floor(ballCount * percentHit);
 	hitsLeft = minimumScore;
