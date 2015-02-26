@@ -66,3 +66,64 @@ h2 {
 	margin-top: 30px;
 	display: none;
 }
+
+#mobile {
+	display: none;
+}
+
+
+@media screen and (max-width: 700px) {
+	#game {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+	}
+
+	#desktop {
+		display: none;
+	}
+
+	#title-board {
+		display: inline-block;
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		z-index: 101;
+	}
+
+	#title-board img {
+		display: none;
+	}
+
+	#title-board h2, #title-board h3 {
+		position: relative;
+		display: block;
+		text-align: left;
+		margin: 0;
+		padding: 0;
+		font-size: 1em;
+	}
+
+	#game-options {
+		z-index: 5;
+	}
+
+	#finished-remark {
+		font-size: 2em;
+	}
+
+
+	.border-wrapper {
+		border: none;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+
+
+
+
+
+/**/

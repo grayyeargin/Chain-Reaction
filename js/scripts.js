@@ -1,5 +1,4 @@
 window.onload = function() {
-
 // create global variables for DOM elements
 var board = document.getElementById("game");
 var context = board.getContext("2d");
@@ -23,8 +22,16 @@ var percentHit = 0.1;
 var ballCount = 30;
 var minimumScore = 2;
 var hitsLeft = minimumScore;
-width = board.width = 800;
-height = board.height = 500;
+
+// set height and width depending on screen size
+if (window.innerWidth < 800 || window.innerHeight < 675) {
+	ballCount = 15;
+	width = board.width = window.innerWidth;
+	height = board.height = window.innerHeight;
+} else {
+	width = board.width = 800;
+	height = board.height = 500;
+}
 
 // create initial data for each ball
 function createBalls(num){
